@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -45,22 +46,44 @@
                                     <constraint firstAttribute="trailing" secondItem="ujt-00-lbs" secondAttribute="trailing" id="ohg-NM-Nc9"/>
                                 </constraints>
                             </stackView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="387" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="Ovi-9I-ths">
+                                <rect key="frame" x="20" y="193" width="320" height="320"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ovi-9I-ths" secondAttribute="height" multiplier="1:1" id="IUz-BR-cyl"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="0Fo-aP-brQ" appends="YES" id="yXc-aP-JBU"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="5Fj-cM-OrN" secondAttribute="trailing" id="03Y-ZE-hps"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ovi-9I-ths" secondAttribute="trailing" id="9Os-XP-dDx"/>
+                            <constraint firstItem="Ovi-9I-ths" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="AdW-AI-Pft"/>
                             <constraint firstItem="5Fj-cM-OrN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Lq8-0p-bBs"/>
                             <constraint firstItem="5Fj-cM-OrN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="WW0-ci-Os9"/>
+                            <constraint firstItem="Ovi-9I-ths" firstAttribute="top" secondItem="5Fj-cM-OrN" secondAttribute="bottom" constant="20" id="a5m-SC-cFg"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mealNameLabel" destination="d8M-0b-AF8" id="5YZ-KB-5v7"/>
                         <outlet property="nameTextField" destination="ujt-00-lbs" id="t6t-C8-MhW"/>
+                        <outlet property="photoImageView" destination="Ovi-9I-ths" id="166-Lo-yWt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="0Fo-aP-brQ">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="d7n-NY-EdR"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-87" y="-122"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultImage" width="540" height="540"/>
+    </resources>
 </document>
